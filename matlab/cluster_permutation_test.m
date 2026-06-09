@@ -7,8 +7,9 @@ function stats = cluster_permutation_test(mmnByChannel, time, nPermutations, thr
 %   nPermutations number of permutations (default 1000)
 %   threshold     cluster-forming |t| threshold (default 2.0)
 %
-% Note: channels are treated as exchangeable observations for this
-% minimal implementation.
+% Note: this minimal implementation treats channels as exchangeable
+% observations. For rigorous inferential EEG analyses, prefer trial-level
+% permutation methods that explicitly model spatial dependencies.
 
 if nargin < 3
     nPermutations = 1000;
@@ -71,8 +72,8 @@ idx = find(mask);
 edges = [1, find(diff(idx) > 1) + 1, numel(idx) + 1];
 nClusters = numel(edges) - 1;
 clusters = cell(1, nClusters);
-for clusterIdx = 1:numel(edges) - 1
-    range = edges(clusterIdx):edges(clusterIdx + 1) - 1;
-    clusters{clusterIdx} = idx(range);
+for c = 1:numel(edges) - 1
+    range = edges(c):edges(c + 1) - 1;
+    clusters{c} = idx(range);
 end
 end
