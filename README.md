@@ -25,6 +25,12 @@ Triggers were embedded in the EEG recording by the stimulus presentation softwar
 The 800000 marker is inserted by CURRY 8 at the start or boundary of each experimental block and is used by the pipeline to split the continuous EEG into separate blocks before epoching.
 
 # Pipeline
+01_filter_and_prepare_channels.m
+02_run_GEDAI_artefact_removal.m
+03_extract_ERPs_and_MMN.m
+04_MMN_by_contrast_pre_post.m
+05_cluster_permutation_MMN.m
+06_cluster_permutation_pre_vs_post.m
 
 # Data Availability
 Raw EEG data are not shared due to GDPR. Available on reasonable request.
