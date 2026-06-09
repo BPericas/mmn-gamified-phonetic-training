@@ -7,8 +7,8 @@ if ~any(baselineMask)
 end
 
 baseline = mean(dataset.data(:, baselineMask, :), 2);
-dataset.data = dataset.data - baseline;
+dataset.data = bsxfun(@minus, dataset.data, baseline);
 
 channelMean = mean(dataset.data, 1);
-dataset.data = dataset.data - channelMean;
+dataset.data = bsxfun(@minus, dataset.data, channelMean);
 end

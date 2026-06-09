@@ -1,23 +1,28 @@
-function stats = cluster_permutation_test(mmnByChannel, time, nPermutations)
+function stats = cluster_permutation_test(mmnByChannel, time, nPermutations, threshold)
 %CLUSTER_PERMUTATION_TEST One-sample sign-flip cluster permutation test.
 %
 % Inputs:
 %   mmnByChannel [channels x time]
 %   time         [1 x time]
 %   nPermutations number of permutations (default 1000)
+%   threshold     cluster-forming |t| threshold (default 2.0)
+%
+% Note: channels are treated as exchangeable observations for this
+% minimal implementation.
 
 if nargin < 3
     nPermutations = 1000;
 end
+if nargin < 4
+    threshold = 2.0;
+end
 
 nChannels = size(mmnByChannel, 1);
-nTime = size(mmnByChannel, 2);
 
 sampleMean = mean(mmnByChannel, 1);
 sampleStd = std(mmnByChannel, 0, 1);
 tValues = sampleMean ./ (sampleStd ./ sqrt(nChannels) + eps);
 
-threshold = 2.0;
 clusters = find_clusters(abs(tValues) > threshold);
 clusterMasses = zeros(1, numel(clusters));
 for i = 1:numel(clusters)
@@ -57,15 +62,17 @@ stats.nullDistribution = nullDistribution;
 end
 
 function clusters = find_clusters(mask)
-clusters = {};
 if ~any(mask)
+    clusters = {};
     return;
 end
 
 idx = find(mask);
 edges = [1, find(diff(idx) > 1) + 1, numel(idx) + 1];
+nClusters = numel(edges) - 1;
+clusters = cell(1, nClusters);
 for i = 1:numel(edges) - 1
     range = edges(i):edges(i + 1) - 1;
-    clusters{end + 1} = idx(range); %#ok<AGROW>
+    clusters{i} = idx(range);
 end
 end
