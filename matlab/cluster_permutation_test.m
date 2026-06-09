@@ -71,8 +71,8 @@ idx = find(mask);
 edges = [1, find(diff(idx) > 1) + 1, numel(idx) + 1];
 nClusters = numel(edges) - 1;
 clusters = cell(1, nClusters);
-for i = 1:numel(edges) - 1
-    range = edges(i):edges(i + 1) - 1;
-    clusters{i} = idx(range);
+for clusterIdx = 1:numel(edges) - 1
+    range = edges(clusterIdx):edges(clusterIdx + 1) - 1;
+    clusters{clusterIdx} = idx(range);
 end
 end

@@ -11,7 +11,7 @@ deviantCondition = 'deviant';
 dataset = load_eeg_dataset(inputFile);
 preprocessed = preprocess_eeg(dataset);
 results = extract_mmn_erp(preprocessed, standardCondition, deviantCondition);
-results.stats = cluster_permutation_test(results.mmn, preprocessed.time, 1000);
+results.stats = cluster_permutation_test(results.mmn, results.time, 1000);
 
 outputDir = fileparts(outputFile);
 if ~isempty(outputDir) && ~isfolder(outputDir)
