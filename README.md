@@ -4,6 +4,9 @@ EEG/MMN analysis pipeline for a gamified phonetic learning study. Includes prepr
 MATLAB R2024b  
 EEGLAB v2026  
 FieldTrip fieldtrip-20250106
+GEDAI toolbox  (https://github.com/NeuroEngUAB/GEDAI)
+NoiseTools     (http://audition.ens.fr/adc/NoiseTools/)
+
 # Data Acquisition
 EEG system: NeuroScan (amplifier: SynAmps RT)  
 Acquisition software: CURRY 8  
