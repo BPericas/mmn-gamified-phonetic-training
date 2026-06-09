@@ -3,8 +3,8 @@ EEG/MMN analysis pipeline for a gamified phonetic learning study. Includes prepr
 # Dependencies
 MATLAB R2024b  
 EEGLAB v2026  
-FieldTrip fieldtrip-20250106
-GEDAI toolbox  (https://github.com/NeuroEngUAB/GEDAI)
+FieldTrip fieldtrip-20250106  
+GEDAI toolbox  (https://github.com/NeuroEngUAB/GEDAI)  
 NoiseTools     (http://audition.ens.fr/adc/NoiseTools/)
 
 # Data Acquisition
