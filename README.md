@@ -1,4 +1,4 @@
-# mmn-gamified-phonetic-training
+# MMN Gamified Phonetic Training
 EEG/MMN analysis pipeline for a gamified phonetic learning study. Includes preprocessing, ERP extraction, and cluster-based permutation testing (FieldTrip) to examine neural discrimination of English vowel contrasts (/iː/–/ɪ/ and /æ/–/ɛ/) before and after training.
 # Dependencies
 MATLAB R2024b
@@ -13,10 +13,11 @@ Cap layout: standard 10-20 system
 # Trigger Codes and Channel Selection
 Triggers were embedded in the EEG recording by the stimulus presentation software. The raw files contain 30 EEG channels, 2 EOG channels, and 1 trigger channel. The trigger channel is discarded during preprocessing and only the EEG and EOG channels are retained for analysis.
 
-Code	Meaning
-1	Standard stimulus
-2	Deviant stimulus
-800000	Block boundary marker
+| Code   | Meaning               |
+| ------ | --------------------- |
+| 1      | Standard stimulus     |
+| 2      | Deviant stimulus      |
+| 800000 | Block boundary marker |
 
 The 800000 marker is inserted by CURRY 8 at the start or boundary of each experimental block and is used by the pipeline to split the continuous EEG into separate blocks before epoching.
 
