@@ -1,5 +1,5 @@
 # MMN Gamified Phonetic Training
-EEG/MMN analysis pipeline for a gamified phonetic learning study. Includes preprocessing, ERP extraction, and cluster-based permutation testing (FieldTrip) to examine neural discrimination of English vowel contrasts (/iː/–/ɪ/ and /æ/–/ɛ/) before and after training. Full description of the pipeline available at [blog] (https://bpericas.github.io/Analysing-CURRY-EEG-data/).
+EEG/MMN analysis pipeline for a gamified phonetic learning study. Includes preprocessing, ERP extraction, and cluster-based permutation testing (FieldTrip) to examine neural discrimination of English vowel contrasts (/iː/–/ɪ/ and /æ/–/ɛ/) before and after training. Full description of the pipeline available at (https://bpericas.github.io/Analysing-CURRY-EEG-data/).
 # Dependencies
 MATLAB R2024b  
 EEGLAB v2026  
